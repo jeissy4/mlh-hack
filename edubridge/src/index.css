@@ -246,4 +246,152 @@ body {
   from { opacity: 0.4; }
   to { opacity: 1; }
 }
+/* ===== Toast Notification ===== */
+.toast-message {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #007acc;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  animation: fadeInOut 3s ease forwards;
+}
 
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+
+/* ===== Responsive Design (Fixed Version) ===== */
+@media (max-width: 1024px) {
+  /* Navbar stacks neatly */
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.3rem;
+  }
+
+  /* Dashboard: center all cards */
+  .dashboard-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  /* Remove flex sizing — makes both blocks same width */
+  .lesson-form,
+  .lesson-output-container {
+    flex: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Keep form nice & readable */
+  .lesson-form {
+    padding: 1.5rem;
+  }
+
+  .lesson-form input,
+  .lesson-form button {
+    font-size: 0.95rem;
+  }
+
+  /* Output buttons stack cleanly */
+  .btn-group {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    width: 100%;
+  }
+
+  .export-btn {
+    background: #00b36b;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
+}
+
+/* ===== Small Mobile (Phones) ===== */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0.8rem;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .tagline {
+    font-size: 0.85rem;
+  }
+
+  .dashboard-container {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+
+  .lesson-form,
+  .lesson-output-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1.2rem;
+  }
+
+  /* Fix input pushing right */
+  .lesson-form input {
+    width: 100%;
+    display: block;
+  }
+
+  /* Button stays full width */
+  .lesson-form button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  /* Output content centered */
+  .lesson-output-container {
+    text-align: left;
+  }
+
+  .lesson-output {
+    max-height: 60vh;
+  }
+
+  /* Dropdown and Export stacked */
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .export-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
