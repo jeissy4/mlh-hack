@@ -4,7 +4,7 @@ EduBridge is a web application designed to help teachers and students with limit
 
 ---
 ## Live Demo
-Check out the live demo here: [EduBridge Live Demo](https://vercel.com/jeissy4s-projects/edu-bridge)
+Check out the live demo here: [EduBridge Live Demo](https://edu-bridge-five.vercel.app/)
 
 
 ## Table of Contents
