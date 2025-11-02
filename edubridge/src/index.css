@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
 }
-
 body {
   font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, #dff3f5, #f3f9fd);
@@ -12,7 +11,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-
 /* ===== Navbar ===== */
 .navbar {
   background: linear-gradient(90deg, #007acc, #00a2ff);
@@ -21,23 +19,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap; /* ✅ lets text wrap properly */
+  flex-wrap: wrap;
+  /* ✅ lets text wrap properly */
   gap: 0.8rem;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
-
 .logo {
   font-weight: 700;
   font-size: 1.5rem;
   letter-spacing: 0.5px;
 }
-
 .tagline {
   font-size: 0.95rem;
   opacity: 0.9;
   font-weight: 300;
 }
-
 /* ===== Layout ===== */
 .dashboard-container {
   display: flex;
@@ -45,9 +41,10 @@ body {
   gap: 2rem;
   padding: 2rem;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center; /* ✅ center vertically */
   max-width: 1300px;
   margin: 0 auto;
+  min-height: calc(100vh - 120px); /* ✅ ensures full height minus navbar */
 }
 
 /* ===== Lesson Form ===== */
@@ -61,18 +58,15 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease;
 }
-
 .lesson-form:hover {
   transform: translateY(-3px);
 }
-
 .lesson-form h2 {
   margin-bottom: 1rem;
   color: #007acc;
   font-size: 1.4rem;
   font-weight: 600;
 }
-
 .lesson-form label {
   display: block;
   margin-top: 1rem;
@@ -80,7 +74,6 @@ body {
   font-size: 0.9rem;
   color: #333;
 }
-
 .lesson-form input {
   width: 100%;
   margin-top: 0.5rem;
@@ -90,12 +83,18 @@ body {
   outline: none;
   transition: border 0.2s;
 }
-
+.lesson-form input[type="checkbox"] {
+  width: auto !important;
+  margin-right: 0.5rem;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  border-radius: 3px !important;
+  cursor: pointer;
+}
 .lesson-form input:focus {
   border-color: #007acc;
   box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.2);
 }
-
 .lesson-form button {
   width: 100%;
   background: linear-gradient(90deg, #007acc, #00a2ff);
@@ -109,12 +108,10 @@ body {
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .lesson-form button:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 12px rgba(0, 122, 204, 0.3);
 }
-
 /* ===== Lesson Output ===== */
 .lesson-output-container {
   flex: 2;
@@ -127,45 +124,42 @@ body {
   flex-direction: column;
   height: fit-content;
 }
-
 .lesson-output-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* ✅ no overflow */
+  flex-wrap: wrap;
+  /* ✅ no overflow */
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
-
 .lesson-output-header h2 {
   color: #007acc;
   font-weight: 600;
 }
-
 .btn-group {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* ✅ aligned neatly on desktop */
+  justify-content: flex-end;
+  /* ✅ aligned neatly on desktop */
   flex-wrap: wrap;
   gap: 0.5rem;
 }
-
 @media (max-width: 600px) {
   .btn-group {
     justify-content: center;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 0.6rem;
   }
-
   .export-btn {
-    width: auto; /* ✅ stops it from stretching full width */
+    width: 100%;
+    /* ✅ Full width for mobile consistency */
     padding: 0.6rem 1rem;
     border-radius: 6px;
     font-size: 0.9rem;
   }
 }
-
 /* ===== Buttons ===== */
 .regen-select {
   border-radius: 8px;
@@ -173,7 +167,6 @@ body {
   border: 1px solid #ccc;
   min-width: 160px;
 }
-
 .export-btn {
   background: #00b36b;
   color: white;
@@ -184,11 +177,9 @@ body {
   cursor: pointer;
   transition: background 0.2s;
 }
-
 .export-btn:hover {
   background: #00995c;
 }
-
 /* ===== Markdown Output ===== */
 .lesson-output {
   background: white;
@@ -198,25 +189,22 @@ body {
   line-height: 1.7;
   color: #222;
   font-size: 0.95rem;
-  max-height: 70vh; /* ✅ keeps it scrollable */
+  max-height: 70vh;
+  /* ✅ keeps it scrollable */
 }
-
-.lesson-output h2, 
+.lesson-output h2,
 .lesson-output h3 {
   color: #007acc;
   margin-top: 1.2rem;
 }
-
 .lesson-output p {
   margin-bottom: 1rem;
 }
-
 .placeholder {
   color: #888;
   text-align: center;
   margin-top: 3rem;
 }
-
 /* ===== Markdown Typography ===== */
 .markdown-content h2 {
   color: #007acc;
@@ -224,32 +212,26 @@ body {
   padding-bottom: 4px;
   margin-top: 1.5rem;
 }
-
 .markdown-content p {
   color: #333;
   font-size: 15px;
   margin: 0.4rem 0;
   line-height: 1.6;
 }
-
 .markdown-content ul {
   padding-left: 1.5rem;
   margin: 0.4rem 0;
 }
-
 .markdown-content li {
   margin-bottom: 0.3rem;
 }
-
 .markdown-content strong {
   color: #005fa3;
 }
-
 .markdown-content h3 {
   color: #006ba1;
   margin-top: 1rem;
 }
-
 /* ===== Loader ===== */
 .loader {
   text-align: center;
@@ -258,13 +240,14 @@ body {
   padding: 3rem;
   animation: blink 1s infinite alternate;
 }
-
 @keyframes blink {
-  from { opacity: 0.4; }
-  to { opacity: 1; }
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
-
 /* ===== Responsive Design (Fixed Version) ===== */
 @media (max-width: 1024px) {
   /* Navbar stacks neatly */
@@ -273,39 +256,29 @@ body {
     text-align: center;
     gap: 0.3rem;
   }
-
-  /* Dashboard: center all cards */
   .dashboard-container {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: flex-start;
     padding: 1rem;
+    min-height: unset;
   }
-
-  /* Make both form and output same width */
   .lesson-form,
   .lesson-output-container {
-    flex: none;
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
   }
 
   /* Center the form elements neatly */
   .lesson-form {
     padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
-
   .lesson-form input,
   .lesson-form button,
   .lesson-form label {
     width: 100%;
-    max-width: 350px;
   }
-
   /* Output buttons centered neatly */
   .btn-group {
     justify-content: center;
@@ -313,74 +286,103 @@ body {
     gap: 0.6rem;
     width: 100%;
   }
-
   .export-btn {
     background: #00b36b;
     padding: 0.5rem 0.8rem;
     font-size: 0.9rem;
     border-radius: 6px;
   }
+  .lesson-output-container {
+    min-width: 100%;
+  }
 }
-
 /* ===== Small Mobile (Phones) ===== */
 @media (max-width: 600px) {
   .navbar {
     padding: 0.8rem;
   }
-
   .logo {
     font-size: 1.25rem;
   }
-
   .tagline {
     font-size: 0.85rem;
   }
-
   .dashboard-container {
-    padding: 0.5rem;
+    padding: 0.75rem;
     gap: 1rem;
-    justify-content: center; /* ✅ centers everything on iPhones */
   }
-
-  .lesson-form,
-  .lesson-output-container {
-    width: 90%;
-    margin: 0 auto;
+  .lesson-form {
     padding: 1.2rem;
   }
-
+  .lesson-output-container {
+    padding: 1.2rem;
+  }
   .lesson-form input {
     width: 100%;
-    display: block;
+    font-size: 16px; /* Prevents zoom on iOS */
   }
-
   .lesson-form button {
     width: 100%;
     padding: 0.75rem;
     font-size: 1rem;
   }
-
-  .lesson-output-container {
-    text-align: left;
+  .lesson-form h2 {
+    font-size: 1.2rem;
   }
-
+  .lesson-output-container h2 {
+    font-size: 1.2rem;
+  }
   .lesson-output {
-    max-height: 60vh;
+    max-height: 50vh;
+    font-size: 0.9rem;
   }
-
   /* Center dropdown + export button */
   .btn-group {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
     gap: 0.5rem;
   }
-
   .export-btn {
-    width: auto; /* ✅ stops full-width stretching */
-    padding: 0.5rem 0.9rem;
+    width: 100%;
+    padding: 0.6rem;
     font-size: 0.9rem;
-    text-align: center;
+  }
+  .lesson-output-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .lesson-output-header h2 {
+    margin-bottom: 0.5rem;
+  }
+  .markdown-content h2 {
+    font-size: 1.3rem;
+  }
+  .markdown-content h3 {
+    font-size: 1.1rem;
   }
 }
 
+/* ===== Extra Small Mobile (Small phones) ===== */
+@media (max-width: 400px) {
+  .dashboard-container {
+    padding: 0.5rem;
+  }
+  .lesson-form,
+  .lesson-output-container {
+    padding: 1rem;
+  }
+  .lesson-form h2,
+  .lesson-output-container h2 {
+    font-size: 1.1rem;
+  }
+  .logo {
+    font-size: 1.1rem;
+  }
+  .tagline {
+    font-size: 0.8rem;
+  }
+  .lesson-output {
+    max-height: 40vh;
+    font-size: 0.85rem;
+  }
+}
