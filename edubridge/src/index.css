@@ -49,7 +49,7 @@ body {
 
 /* ===== Lesson Form ===== */
 .lesson-form {
-  flex: 1;
+  width: 420px;
   min-width: 320px;
   max-width: 420px;
   background: rgba(255, 255, 255, 0.95);
@@ -57,6 +57,7 @@ body {
   padding: 2rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease;
+  flex-shrink: 0;
 }
 .lesson-form:hover {
   transform: translateY(-3px);
@@ -249,6 +250,17 @@ body {
   }
 }
 /* ===== Responsive Design (Fixed Version) ===== */
+/* ===== Medium Screens / Small Tablets ===== */
+@media (max-width: 1200px) and (min-width: 1025px) {
+  .lesson-form {
+    width: 380px;
+    max-width: 380px;
+  }
+  .lesson-output-container {
+    flex: 1;
+  }
+}
+/* ===== Tablets ===== */
 @media (max-width: 1024px) {
   /* Navbar stacks neatly */
   .navbar {
@@ -258,7 +270,7 @@ body {
   }
   .dashboard-container {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     justify-content: flex-start;
     padding: 1rem;
     min-height: unset;
@@ -266,8 +278,8 @@ body {
   .lesson-form,
   .lesson-output-container {
     width: 100%;
-    max-width: none;
-    margin: 0;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   /* Center the form elements neatly */
