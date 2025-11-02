@@ -10,16 +10,19 @@ body {
   background: linear-gradient(135deg, #dff3f5, #f3f9fd);
   color: #222;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* ===== Navbar ===== */
 .navbar {
   background: linear-gradient(90deg, #007acc, #00a2ff);
   color: white;
-  padding: 1.2rem 2rem;
+  padding: 1.2rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap; /* ✅ lets text wrap properly */
+  gap: 0.8rem;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -42,14 +45,17 @@ body {
   gap: 2rem;
   padding: 2rem;
   justify-content: center;
+  align-items: flex-start;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 /* ===== Lesson Form ===== */
 .lesson-form {
   flex: 1;
-  min-width: 340px;
+  min-width: 320px;
   max-width: 420px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
@@ -113,19 +119,21 @@ body {
 .lesson-output-container {
   flex: 2;
   min-width: 400px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
   padding: 1.5rem 2rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
+  height: fit-content;
 }
 
 .lesson-output-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* ✅ no overflow */
+  gap: 0.5rem;
   margin-bottom: 1rem;
 }
 
@@ -137,29 +145,16 @@ body {
 .btn-group {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-/* Buttons */
+/* ===== Buttons ===== */
 .regen-select {
   border-radius: 8px;
   padding: 0.5rem;
   border: 1px solid #ccc;
-}
-
-.regen-btn {
-  background: #ffb300;
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.regen-btn:hover {
-  background: #ffa000;
+  min-width: 160px;
 }
 
 .export-btn {
@@ -177,7 +172,7 @@ body {
   background: #00995c;
 }
 
-/* ===== Markdown output ===== */
+/* ===== Markdown Output ===== */
 .lesson-output {
   background: white;
   border-radius: 12px;
@@ -186,10 +181,13 @@ body {
   line-height: 1.7;
   color: #222;
   font-size: 0.95rem;
+  max-height: 70vh; /* ✅ keeps it scrollable */
 }
 
-.lesson-output h2, .lesson-output h3 {
+.lesson-output h2, 
+.lesson-output h3 {
   color: #007acc;
+  margin-top: 1.2rem;
 }
 
 .lesson-output p {
@@ -201,16 +199,8 @@ body {
   text-align: center;
   margin-top: 3rem;
 }
-.dashboard-container {
-  display: flex;
-  align-items: flex-start; /* ✅ prevents form stretching */
-  gap: 2rem;
-  padding: 2rem;
-}
 
-.lesson-form {
-  align-self: flex-start; /* ✅ form height stays consistent */
-}
+/* ===== Markdown Typography ===== */
 .markdown-content h2 {
   color: #007acc;
   border-bottom: 2px solid #e0f2f9;
@@ -243,8 +233,6 @@ body {
   margin-top: 1rem;
 }
 
-
-
 /* ===== Loader ===== */
 .loader {
   text-align: center;
@@ -259,9 +247,3 @@ body {
   to { opacity: 1; }
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-  .dashboard-container {
-    flex-direction: column;
-  }
-}
